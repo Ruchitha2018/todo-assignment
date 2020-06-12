@@ -1,0 +1,28 @@
+body{
+    background: #f0f4f8 !important;
+    font-family: Manjari;
+}
+nav{
+    background: white;
+    box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);
+}
+.container{
+    background: white;
+    padding: 20px;
+}
+.category-card{
+    border-radius: 0px;
+    box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);
+    padding:10px 10px 03px 10px;
+    color:white;
+    margin-bottom: 10px;
+}
+.category-card h6{
+    text-align: right;
+    font-size: 13px;
+}
+.category-section h4{
+    color: #74777E;
+    border-bottom: 4px solid #E8ECEE;
+    margin-bottom: 20px;
+}
