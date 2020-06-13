@@ -1,6 +1,9 @@
-export const getTodo= () => {
+import { API } from "../../config";
+
+export const getTodos = (catId) => {
+    console.log(catId);
  
-    return fetch(`./todo.json`, {
+    return fetch(`${API}/task/list/${catId}`, {
         method: "GET",
       headers : { 
         'Content-Type': 'application/json',

@@ -16,11 +16,11 @@ module.exports = db.sequelize.define('tasks', {
         type: Sequelize.INTEGER
     },
     task_level: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         defaultValue: -1
     },
     task_status: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         defaultValue: -1
     },
     created:{
