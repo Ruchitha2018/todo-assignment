@@ -23,6 +23,9 @@ module.exports = db.sequelize.define('tasks', {
         type: Sequelize.STRING,
         defaultValue: -1
     },
+    task_deadline: {
+        type: Sequelize.DATE
+    },
     created:{
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW

@@ -35,3 +35,29 @@ nav{
     border-bottom: 1px solid #E8ECEE;
     padding:08px;
 }
+.pending-task{
+    border-top:5px solid tomato;
+}
+.progress-task{
+    border-top:5px solid dodgerblue;
+}
+.complete-task{
+    border-top:5px solid forestgreen;
+}
+.task-box{
+    border-bottom:1px solid lavender;
+    border-top:1px solid lavender;
+    padding: 08px;
+}
+.task-box p{
+    color:slategray;
+    font-size: 13px;
+    display: inline-block;
+}
+.task-box p i{
+    margin-left: 15px;
+}
+.task-box h6{
+    font-size: 15px;
+    margin-top: -24px;
+}

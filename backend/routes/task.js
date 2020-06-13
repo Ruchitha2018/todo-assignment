@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const {  listTaskByCategory } = require("../controllers/task");
+const {  listTaskByCategory, addTask } = require("../controllers/task");
 
 router.get("/list/:catId", listTaskByCategory);
-
+router.post("/add", addTask);
 
 module.exports = router;

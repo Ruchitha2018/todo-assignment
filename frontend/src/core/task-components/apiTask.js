@@ -1,8 +1,9 @@
 import { API } from "../../config";
 
-export const getCategories = () => {
+export const getTasks = (catId) => {
+    console.log(catId);
  
-    return fetch(`${API}/category/list`, {
+    return fetch(`${API}/task/list/${catId}`, {
         method: "GET",
       headers : { 
         'Content-Type': 'application/json',
@@ -12,16 +13,15 @@ export const getCategories = () => {
     .then((response) => response.json())
     .then((data) => {return data;})};
 
-
-export const addCategory = category => {
+export const addTask = task => {
     
-    return fetch(`${API}/category/add`, {
+    return fetch(`${API}/task/add`, {
         method: "POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(category)
+        body: JSON.stringify(task)
     }).then(response => {
             return response.json();
         }).catch(err => {
