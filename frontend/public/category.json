@@ -10,22 +10,22 @@
         "desc": "Home category"
     },
     {
-        "id":1,
+        "id":3,
         "name":"Grocery",
         "desc": "Home category"
     },
     {
-        "id":1,
+        "id":4,
         "name":"Design",
         "desc": "Home category"
     },
     {
-        "id":1,
+        "id":5,
         "name":"Design",
         "desc": "Home category"
     },
     {
-        "id":1,
+        "id":6,
         "name":"Design",
         "desc": "Home category"
     }

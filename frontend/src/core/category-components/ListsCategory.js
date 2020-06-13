@@ -17,6 +17,7 @@ const ListsCategory = () => {
             }
         }); 
     };
+    
 
      useEffect(() => {
             loadCategories();
@@ -27,8 +28,8 @@ const ListsCategory = () => {
           {category.map((data, index) => (
            <div className = "col-md-3">
             <div className = "category-card" style={{background: categoryColor[index]}}>
-                <h5>{data.name}</h5>
-                <p>{data.desc}</p>
+                <h5>{data.cat_name}</h5>
+                <p>{data.cat_desc}</p>
                 <h6>Jun 12th 2020</h6>  
            </div>
            </div>
@@ -36,13 +37,12 @@ const ListsCategory = () => {
     </div>    
     );
 
- 
-    
     return(
         <div className = "container">
         <div className = "category-section section">
         <h4>Categories</h4>
-        {displayCategory()}
+        <button type="button" class="btn btn-info">Add Category</button><br /><br />
+         {displayCategory()}
         </div>
         </div>
     );
