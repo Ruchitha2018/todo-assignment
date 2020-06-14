@@ -28,3 +28,17 @@ export const addCategory = category => {
             console.log(err);
         });
 };
+
+export const deleteCategory = (catId) => {
+    return fetch(`${API}/category/delete/${catId}`, {
+        method: "DELETE",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        }
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};

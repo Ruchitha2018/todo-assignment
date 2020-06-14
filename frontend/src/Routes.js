@@ -7,6 +7,9 @@ import AddTask from "./core/task-components/AddTask";
 
 import AddCategory from "./core/category-components/AddCategory";
 
+import ModalDesign from "./core/common-components/ModalDesign";
+
+
 import './style.css';
 
 const Routes = () => {
@@ -17,6 +20,8 @@ const Routes = () => {
         <Route path = "/task/:catId" exact component = {ListsTask} />
         <Route path = "/add-task" exact component = {AddTask} />
         <Route path = "/category/add" exact component = {AddCategory} />
+                <Route path = "/modal" exact component = {ModalDesign} />
+
         </Switch>
         </BrowserRouter>
     );

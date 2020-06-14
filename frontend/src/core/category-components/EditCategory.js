@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment} from "react";
 import { addCategory } from "./apiCategory";
 import Header from "../common-components/Header";
 
-const AddCategory = () => {
+const EditCategory = ({props}) => {
     const [values, setValues] = useState({
         cat_name: "",
         cat_desc: "",
@@ -64,4 +64,4 @@ const AddCategory = () => {
     );
 }
 
-export default AddCategory;
+export default EditCategory;
