@@ -1,15 +1,11 @@
 import React, { useState, useEffect, Fragment} from "react";
 import { addTask } from "./apiTask";
-import { getCategories } from "../category-components/apiCategory";
-import Header from "../common-components/Header";
 
-const AddTask = () => {
+const AddTask = (props) => {
     
-    const [category, setCategory] = useState([]);
-
     const [values, setValues] = useState({
         task_title: "",
-        cat_id: "",
+        cat_id: props.categoryId,
         task_level:"",
         task_status:"-1",
         task_deadline:"",
@@ -19,18 +15,8 @@ const AddTask = () => {
      
      const { task_title,cat_id,task_level, task_status,task_deadline, formSuccess, error } = values;
     
-     const loadCategories = () => {
-        getCategories().then(data => {
-            if(data.error){
-                console.log("error");
-            }else{
-                setCategory(data);
-            }
-        }); 
-    };
     
     useEffect(() => {
-            loadCategories();
      }, []);  
  
      const handleChange = name => event => {
@@ -39,12 +25,11 @@ const AddTask = () => {
      
     const handleSubmit = (event) => {
         event.preventDefault();
-        addTask({task_title,cat_id,task_level, task_status,task_deadline}).then(data => {
-            console.log(data);
+        addTask({task_title,cat_id,task_level,task_status,task_deadline}).then(data => {
             if(data.error){
                 console.log(data.error);
             }else{
-                setValues({...values, task_title:"",cat_id:"-1",task_level:"", task_status:"",task_deadline:"", formSuccess:true})
+                setValues({...values, task_title:"",cat_id:props.categoryId,task_level:"", task_status:"",task_deadline:"", formSuccess:true})
             }
         })
     } 
@@ -54,8 +39,7 @@ const AddTask = () => {
         Task had added successfully
       </div>    
     );
-  
-    
+   
     const displayForm = () => (
          <form>
             <div className="form-group">
@@ -67,19 +51,6 @@ const AddTask = () => {
                 <label className="text-muted">Deadline</label>
                 <input type="date" className="form-control" value={task_deadline} onChange={handleChange("task_deadline")} />
             </div>
-            
-           <div className="form-group">
-           <label className="text-muted">Category</label>
-             <select className="form-control" name = "cat_id" onChange={handleChange("cat_id")}>
-                 <option value = "-1">Please Select</option>              
-                    {category &&
-                        category.map((r, i) => (
-                            <option key={i} value={r.id}>
-                                {r.cat_name}
-                            </option>
-                        ))}
-                </select>
-            </div>
                 
             <div className="form-group">    
             <label className="text-muted">Task Level</label>
@@ -88,8 +59,7 @@ const AddTask = () => {
                  <option value = "0">Easy</option>              
                  <option value = "1">Difficult</option>              
                 </select> 
-            </div>                                                            
-                                                                                                           
+            </div>                                                                                                                                 
             <button className="btn btn-primary" onClick={handleSubmit}>
                 Add Task
             </button>
@@ -98,11 +68,9 @@ const AddTask = () => {
 
     return(
         <Fragment>
-          <Header />
           <div className = "container task-section section">
-            <h4>Add Category</h4>
             <div className = "row">
-              <div className = "col-md-4 offset-md-4">
+              <div className = "col-md-12">
                 {successMessage()}
                  {displayForm()}
               </div>

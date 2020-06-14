@@ -1,7 +1,9 @@
 import React, { useState, useEffect, Fragment} from "react";
 import { getTasks } from "./apiTask";
 import Header from "../common-components/Header";
-
+import ModalDesign from "../common-components/ModalDesign";
+import moment from 'moment'
+    
 const ListsTask= (props) => {
 
       const [task, setTask] = useState([]);
@@ -26,8 +28,9 @@ const ListsTask= (props) => {
               <h5>Pending Tasks</h5>
               {task.filter((task) => task.task_status === "-1").map((data) => (
                  <div className = "task-box"> 
-                 <p><i class="fa fa-calendar" aria-hidden="true"></i> 15th June 2020        <p><i class="fa fa-edit" aria-hidden="true"></i> Edit</p>
-                  <p><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</p></p>
+                 <p><i class="fa fa-calendar" aria-hidden="true"></i> {moment(data.task_deadline).format("MMM Do YYYY")}</p>
+                 <ModalDesign element = "task" title="Edit Task" button="edit-task" id = {data.id}/>
+                  <p><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</p>
                  <h6>{data.task_title}</h6>
                  {data.task_level === "0" ? <span class="badge badge-success">Easy</span> : <span class="badge badge-danger">Difficult</span>}
                  </div>  
@@ -42,8 +45,9 @@ const ListsTask= (props) => {
           <h5>Progress Tasks</h5>
               {task.filter((task) => task.task_status === "0").map((data) => (
                  <div className = "task-box"> 
-                 <p><i class="fa fa-calendar" aria-hidden="true"></i> 15th June 2020        <p><i class="fa fa-edit" aria-hidden="true"></i> Edit</p>
-                  <p><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</p></p>
+                 <p><i class="fa fa-calendar" aria-hidden="true"></i> 15th June 2020</p> 
+                 <ModalDesign element = "task" title="Edit Task" button="edit-task" id = {data.id}/>
+                  <p><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</p>
                  <h6>{data.task_title}</h6>
                  {data.task_level === "0" ? <span class="badge badge-success">Easy</span> : <span class="badge badge-danger">Difficult</span>}
                  </div>  
@@ -74,11 +78,11 @@ const ListsTask= (props) => {
         <Header />
         <div className = "container">
         <div className = "task-section section">
-        <button className = "btn btn-primary">Add Task</button>
+        <ModalDesign element = "task" title="Add Task" button="add-task" id={props.match.params.catId}/>
          <div className = "row">
            {pendingTaskDisplay()}
            {progressTaskDisplay()}
-           {completedTaskDisplay()}           
+           {completedTaskDisplay()}   
          </div>
         </div>
         </div>

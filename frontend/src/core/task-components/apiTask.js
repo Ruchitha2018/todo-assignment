@@ -28,3 +28,32 @@ export const addTask = task => {
             console.log(err);
         });
 };
+
+export const updateTask = (task,taskId) => {
+    return fetch(`${API}/task/update/${taskId}`, {
+        method: "PUT",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    }).then(response => {
+        return response.json();
+    }).catch(err => {
+        console.log(err);
+    });
+};
+
+export const getTask= taskId => {
+    return fetch(`${API}/task/get/${taskId}`, {
+        method: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then(response => {
+        return response.json();
+    }).catch(err => {
+        console.log(err);
+    });
+};

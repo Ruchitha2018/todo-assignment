@@ -35,8 +35,7 @@ const ListsCategory = () => {
             }
         });
     }};
-//                               
-//
+
     const displayCategory = () => (
      <div className = "row">
           {category.map((data, index) => (
