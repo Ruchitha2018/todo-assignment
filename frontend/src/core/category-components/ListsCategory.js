@@ -1,8 +1,8 @@
 import React, { useState, useEffect, Fragment} from "react";
 import { getCategories, deleteCategory } from "./apiCategory";
+import { Link } from "react-router-dom";
 import ModalDesign from "../common-components/ModalDesign";
 import moment from 'moment'
-
 
 const ListsCategory = () => {
 
@@ -20,6 +20,10 @@ const ListsCategory = () => {
         }); 
     };
     
+      useEffect(() => {
+            loadCategories();
+     }, []);  
+    
     const removeCategory = catId => {
         let confirmDelete = window.confirm('Delete item forever?');
         if(confirmDelete){
@@ -31,12 +35,8 @@ const ListsCategory = () => {
             }
         });
     }};
-    
-     useEffect(() => {
-            loadCategories();
-     }, []);  
-    
-    
+//                               
+//
     const displayCategory = () => (
      <div className = "row">
           {category.map((data, index) => (
@@ -45,7 +45,8 @@ const ListsCategory = () => {
                 <p>{moment(data.created).format("MMM Do YYYY")}</p> 
                 <h6>{data.cat_name}</h6>
                  <p>{data.cat_desc}</p>
-               <div className = "card-inner-content">
+               <div className = "card-inner-content"> 
+                  <Link to = {`/category-task/${data.id}`}><p><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</p></Link>
                   <p onClick={() => removeCategory(data.id)}><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</p>
                   <ModalDesign element = "category" title="Edit Category" button="edit-category" id = {data.id}/>
                 </div>
@@ -58,7 +59,7 @@ const ListsCategory = () => {
     return(
         <div className = "container">
         <div className = "category-section section">
-        <h4>Categories</h4>
+        <h4>Project Categories</h4>
             <ModalDesign element = "category" title="Add Category" button="add-category"/>
             {displayCategory()}
         </div>

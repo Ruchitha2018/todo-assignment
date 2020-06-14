@@ -1,8 +1,9 @@
 import React, { useState, useEffect, Fragment} from "react";
-import { addCategory } from "./apiCategory";
+import { updateCategory, getCategory } from "./apiCategory";
 import Header from "../common-components/Header";
 
-const EditCategory = ({props}) => {
+const EditCategory = (props) => {
+    
     const [values, setValues] = useState({
         cat_name: "",
         cat_desc: "",
@@ -12,25 +13,39 @@ const EditCategory = ({props}) => {
      
     const { cat_name, cat_desc, formSuccess, error } = values;
  
+    const initCategory = () => {
+        getCategory(props.categoryId).then(data => {
+            if(data.error){
+                console.log("error");
+            }else{
+                setValues({...values, cat_name:data[0].cat_name, cat_desc:data[0].cat_desc});
+            }
+        });
+    } 
+    
+     useEffect(() => {
+            initCategory();
+     }, []); 
+    
+    
     const handleChange = name => event => {
          setValues({ ...values, [name]: event.target.value });
     }
-     
+    
     const handleSubmit = (event) => {
         event.preventDefault();
-        addCategory({cat_name, cat_desc}).then(data => {
-            console.log(data);
+        updateCategory({cat_name, cat_desc}, props.categoryId).then(data => {
             if(data.error){
                 console.log(data.error);
             }else{
-                setValues({...values, cat_name:"",cat_desc:"", formSuccess:true})
+                setValues({...values,formSuccess:true})
             }
-        })
+        });
     } 
     
     const successMessage = () => (
       <div className = "alert alert-info" style = {{ display: formSuccess ? "": "none" }}>
-        Category had added successfully
+        Category had edited successfully
       </div>    
     );
   
@@ -45,7 +60,7 @@ const EditCategory = ({props}) => {
                 <textarea type="cat_desc" className="form-control" value={cat_desc} onChange={handleChange("cat_desc")} />
             </div>                                             
             <button className="btn btn-primary" onClick={handleSubmit}>
-                Add Category
+                Edit Category
             </button>
         </form>
     );

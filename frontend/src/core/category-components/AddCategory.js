@@ -38,11 +38,11 @@ const AddCategory = () => {
          <form>
             <div className="form-group">
                 <label className="text-muted">Category Name</label>
-                <input type="cat_name" className="form-control" value={cat_name} onChange={handleChange("cat_name")} />
+                <input type="cat_name" className="form-control" value={cat_name} onChange={handleChange("cat_name")} required/>
             </div>
             <div className="form-group">
                 <label className="text-muted">Category Description</label>
-                <textarea type="cat_desc" className="form-control" value={cat_desc} onChange={handleChange("cat_desc")} />
+                <textarea type="cat_desc" className="form-control" value={cat_desc} onChange={handleChange("cat_desc")} required />
             </div>                                             
             <button className="btn btn-primary" onClick={handleSubmit}>
                 Add Category

@@ -1,5 +1,5 @@
 body{
-    background: #f0f4f8 !important;
+    background: white !important;
     font-family: Manjari;
 }
 nav{
@@ -7,16 +7,20 @@ nav{
     box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);
 }
 .container{
-    background: white;
     padding: 20px;
 }
-.card-inner-content {
-    display: flex;
-    flex-direction: row-reverse;
+button{
+    border-radius:0px !important;
+    margin-bottom: 14px;
 }
-.card-inner-content p{
-    margin-left: 12px;
+a{
+    color:white;
 }
+a:hover{
+    text-decoration: none;
+    color:white;
+}
+
 .category-card{
     border-radius: 0px;
     box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);
@@ -24,12 +28,21 @@ nav{
     color:white;
     margin-bottom: 10px;
 }
-
 .category-section h4{
     color: #74777E;
     border-bottom: 4px solid #E8ECEE;
     margin-bottom: 20px;
 }
+.card-inner-content {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.card-inner-content p{
+    margin-left: 12px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
 .task-card{
     background: white;
     box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);

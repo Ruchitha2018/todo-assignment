@@ -24,14 +24,13 @@ const ModalDesign = props => {
     const formButton = () => (
         <Fragment>  
       {props.button === "add-category" ?
-         <button type="button" class="btn btn-info" onChange={showModal}>Add Category</button>: <p onClick={showModal}><i class="fa fa-edit" aria-hidden="true"></i> Edit </p>}
+         <button type="button" class="btn btn-info" onClick={showModal}>Add Category</button>: <p onClick={showModal}><i class="fa fa-edit" aria-hidden="true"></i> Edit </p>}
       </Fragment> 
-      
     );
     
     const modalForm = () => (
         <Fragment>
-            {props.element === "category" ? props.button === "add-category" ? <AddCategory /> : <AddCategory categoryId = {props.id}/> : ""}
+            {props.element === "category" ? props.button === "add-category" ? <AddCategory /> : <EditCategory categoryId = {props.id}/> : ""}
         </Fragment>
     );
      
@@ -47,7 +46,7 @@ const ModalDesign = props => {
           </Modal.Header>
              <Modal.Body>{modalForm()}</Modal.Body>
                  <Modal.Footer>
-                 <button onClick={hideModal}>Cancel</button>
+                    <button type="button" class="btn btn-danger" onClick={hideModal}>Cancel</button>
                 </Modal.Footer>
              </Modal>
         </Fragment>

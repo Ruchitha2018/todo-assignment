@@ -22,12 +22,21 @@ exports.addCategory  = (req, res) => {
 }
 
 exports.updateCategory = (req, res) => {
+
     const categoryData = {
         cat_name : req.body.cat_name,
         cat_desc : req.body.cat_desc
     }
     
-    Category.update({categoryData},{where:{id:req.params.catId}}).then((data) => {
+    Category.update(categoryData,{where: { id:req.params.catId }}).then((data) => {
+        return res.json(data);
+    }).catch(err => {
+        res.send(err);
+    });
+};
+
+exports.getCategory = (req, res) => {
+    Category.findAll({where:{id:req.params.catId}}).then((data) => {
         return res.json(data);
     }).catch(err => {
         res.send(err);
@@ -45,6 +54,5 @@ exports.deleteCategory = (req, res) => {
     }).catch(err => {
         res.send(err);
     });
-
 };
 
