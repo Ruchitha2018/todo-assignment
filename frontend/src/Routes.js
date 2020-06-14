@@ -18,8 +18,6 @@ const Routes = () => {
         <Switch>
         <Route path = "/" exact component={Home} />
         <Route path = "/category-task/:catId" exact component = {ListsTask} />
-        <Route path = "/add-task" exact component = {AddTask} />
-//        <Route path = "/category/add" exact component = {AddCategory} />
         <Route path = "/modal" exact component = {ModalDesign} />
         </Switch>
         </BrowserRouter>
