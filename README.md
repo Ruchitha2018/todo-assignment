@@ -9,8 +9,8 @@ Start Date: 12th June 2020 at 8 PM
 End Date: 14th June 2020 at 8 PM
 
 ### Features Completed:
-1. User can add, edit, delete and view the category.
-2. User can add, edit, delete and view the task.
+1. User can view, add, edit and delete the category.
+2. User can view, add, edit and delete the task.
 3. User can update the task status into 3 categories: Pending Tasks, Progress Tasks and Completed Tasks 
 4. User can update the task level into 2 categories: Easy and Difficult Level.
 
@@ -58,7 +58,7 @@ Backend APIs:
 | /api/task/get/:taskId | Get task where id=taskId |
 
 ### Backend Folder Structure
-      Category Folder
+     Category Folder
 	      category.js
 	      task.js
 	 Database Folder
@@ -72,7 +72,7 @@ Backend APIs:
 	    	      
 ### Frontend  Folder Structure
       core Folder
-	      category-components Folder
+	     category-components Folder
 		      AddCategory.js
 		      EditCategory.js
 		      ListsCategory.js
@@ -82,7 +82,7 @@ Backend APIs:
 		      EditTask.js
 		      ListsTask.js
 		      apiTask.js
-		common-components Folder
+		 common-components Folder
 		      Header.js
 		      ModalDesign.js
 		 routes Folder
@@ -93,6 +93,8 @@ Backend APIs:
 		 Routes.js
 		 style.css
 ### Screenshots and Video of Assignment
+
+
 Google Drive Link:
 [Click Here](https://drive.google.com/drive/folders/11UhVCzPt1WoPGwB9G5rljywJoNJOfojZ?usp=sharing)
 ### Video of Assignment
